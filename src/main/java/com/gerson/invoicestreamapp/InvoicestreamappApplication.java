@@ -18,7 +18,7 @@ InvoiceGenerator invoiceGenerator;
 @Autowired
 	KafkaProducerService kafkaProducerService;
 
-@Value("${application.configs.invoice.count")
+@Value("${application.configs.invoice.count}")
 private int INVOICE_COUNT;
 
 
@@ -31,7 +31,7 @@ private int INVOICE_COUNT;
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 
-		for (int i=0;i<INVOICE_COUNT;i++){
+		for (int i = 0; i<INVOICE_COUNT; i++){
 			kafkaProducerService.sendMessage(invoiceGenerator.getNextInvoice());
 			Thread.sleep(1000);
 		}

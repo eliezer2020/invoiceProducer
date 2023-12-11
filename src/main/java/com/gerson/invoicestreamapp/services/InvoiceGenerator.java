@@ -61,7 +61,7 @@ public class InvoiceGenerator {
     public Invoice getNextInvoice() {
         Invoice invoice = invoices[getIndex()];
         invoice.setInvoiceNumber(Integer.toString(getNewInvoiceNumber()));
-        invoice.setCreatedTime(String.valueOf(System.currentTimeMillis()));
+        invoice.setCreatedTime(System.currentTimeMillis());
         if ("HOME_DELIVERY".equalsIgnoreCase(invoice.getDeliveryType())) {
             DeliveryAddress deliveryAddress = addressGenerator.getNext();
             invoice.setDeliveryAddress(deliveryAddress);
@@ -76,7 +76,7 @@ public class InvoiceGenerator {
         }
 
         invoice.setNumberOfItems(itemCount);
-        invoice.setLineItems(items);
+        invoice.setInvoiceLineItems(items);
         invoice.setTotalAmount(totalAmount);
         invoice.setTaxableAmount(totalAmount);
         invoice.setCGST(totalAmount * 0.025);

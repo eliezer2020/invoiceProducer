@@ -43,7 +43,7 @@ public class ProductGenerator {
     public LineItem getNext(){
         LineItem lineItem= lineItems[getIndex()];
         lineItem.setItemQty(getQty());
-        lineItem.setTotalValue((int) (lineItem.getItemPrice()* lineItem.getItemQty()));
+        lineItem.setTotalValue( (lineItem.getItemPrice()* lineItem.getItemQty()));
         return lineItem;
     }
 }
